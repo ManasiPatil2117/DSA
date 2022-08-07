@@ -6,7 +6,7 @@ import java.util.Scanner;
 //   345
 //  4567
 // 56789
-public class Pattern8 {
+public class Pattern21 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
