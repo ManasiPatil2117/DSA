@@ -1,5 +1,3 @@
-// package Sorting;
-
 public class BubbleSort {
     public static void main(String[] args) {
         int[] a = new int[]{4,2,5,1,9};
