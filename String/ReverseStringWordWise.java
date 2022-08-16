@@ -2,13 +2,12 @@ package String;
 
 public class ReverseStringWordWise {
     public static void main(String[] args) {
-        String s = "Welcome to Coding Ninjas";
-        StringBuffer s2;
-        for(int i = s.length();i >= 0 ; i--){
-            if(s.charAt(i) == ' '){
-                s2.append(s.charAt(i,s.length()));
-            }
+        String s[] = "Welcome to Coding Ninjas".split(" ");
+        String ans="";
+        System.out.println(" string: " + s[0]);
+        for(int i = s.length-1; i>=0;i--){
+            ans+= s[i]+" ";
         }
-        System.out.println(s2);
+        System.out.println(ans);
     }
 }
