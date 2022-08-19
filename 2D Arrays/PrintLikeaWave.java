@@ -4,19 +4,19 @@
 public class PrintLikeaWave {
 
     public static void main(String[] args) {
-        int a[][] = new int[][] { { 1, 2, 3, 4 },
-                { 5, 6, 7, 8 },
-                { 9, 10, 11, 12 } };
-        for (int j = 0; j < 4; j++) {
+        int a[][] = new int[][] { { 10, 20, 30 },
+                { 40, 50, 60 },
+                { 70, 80, 90 } };
+        for (int j = 0; j < a[0].length; j++) {
             int i = 0;
-            while (i < 3) {
+            while (i < a.length) {
                 System.out.print(a[i][j] + " ");
                 i++;
             }
-            j++;
-            if (i == 3) {
+            if (i == a.length) {
+                j++;
                 i--;
-                while (i >= 0) {
+                while (i >= 0 && j < a[0].length) {
                     System.out.print(a[i][j] + " ");
                     i--;
                 }
