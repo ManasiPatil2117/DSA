@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Basic {
-    public static void main(String[] args) {
+    public static int[][] createArray(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter row size-");
         int row = sc.nextInt();
@@ -14,12 +14,21 @@ public class Basic {
                 a[i][j] = sc.nextInt();
             }
         }
+        return a;
+    }
+    public static void print(int [][]a){
+        int row =a.length;
+        int col = a[0].length;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 System.out.print(a[i][j]+" ");
             }
             System.out.println();
         }
+    }
+    public static void main(String[] args) {
+       int a[][] = createArray();
+       print(a);
 
     }
 }
