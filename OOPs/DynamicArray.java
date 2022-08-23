@@ -6,18 +6,25 @@ public class DynamicArray {
         d.add(13);
         d.add(14);
         d.add(15);
-        d.print();
+        d.add(16);
+        d.add(17);
+        d.add(18);
+        // d.print();
         // System.out.println(d.size());
         // d.set(3,50);
-    //    System.out.println(d.get(3));
-    //    System.out.println(d.isEmpty());
-       System.out.println(d.removeLast());
-       System.out.println(d.removeLast());
-       System.out.println(d.removeLast());
-       System.out.println(d.removeLast());
-       System.out.println(d.removeLast());
-       System.out.println(d.isEmpty());
-       d.print();       
+        // System.out.println(d.get(3));
+        // System.out.println(d.isEmpty());
+        // System.out.println(d.removeLast());
+        // System.out.println(d.removeLast());
+        // System.out.println(d.removeLast());
+        // System.out.println(d.removeLast());
+        // System.out.println(d.removeLast());
+        // System.out.println(d.isEmpty());
+
+        d.print();
+        d.remove(2);
+        d.print();
+        
     }
 }
 
@@ -57,30 +64,38 @@ class Dynamic {
         return data[i];
     }
 
-    public void set(int i, int e){
-        if(i>=nextIndex){
+    public void set(int i, int e) {
+        if (i >= nextIndex) {
             System.out.println("Cannot insert");
-        }else{
+        } else {
             data[i] = e;
         }
     }
 
-    public boolean isEmpty(){
-        if(size() == 0){
+    public boolean isEmpty() {
+        if (size() == 0) {
             return true;
         }
         return false;
     }
-    public int removeLast(){
-        int t = data[nextIndex-1];
-        data[nextIndex-1] = 0;
+
+    public int removeLast() {
+        int t = data[nextIndex - 1];
+        data[nextIndex - 1] = 0;
         nextIndex--;
         return t;
     }
 
+    public void remove(int i) {
+        for (int j = i; j < size()-1; j++) {
+            data[j] = data[j + 1];
+        }
+        int t=removeLast();
+    }
+
     public void print() {
-        for (int i = 0; i < data.length; i++) {
-            System.out.print(data[i]+" ");
+        for (int i = 0; i < size(); i++) {
+            System.out.print(data[i] + " ");
         }
         System.out.println();
     }
