@@ -1,5 +1,5 @@
-import java.util.Scanner;
-// O(n) time complexity
+// O(n^2) time complexity
+import java.util.*;
 
 class Node<T> {
     T data;
@@ -11,18 +11,21 @@ class Node<T> {
     }
 }
 
-public class createList {
+public class ListWithN2 {
     public static Node<Integer> create() {
-        Node<Integer> head = null, tail = null;
+        Node<Integer> head = null;
         Scanner sc = new Scanner(System.in);
         int data = sc.nextInt();
         while (data != -1) {
-            Node<Integer> newnode = new Node<>(data);
+            Node<Integer> n = new Node<>(data);
             if (head == null) {
-                head = tail = newnode;
+                head = n;
             } else {
-                tail.next = newnode;
-                tail = tail.next;
+                Node<Integer> temp = head;
+                while (temp.next != null) {
+                    temp = temp.next;
+                }
+                temp.next = n;
             }
             data = sc.nextInt();
         }
@@ -30,10 +33,6 @@ public class createList {
     }
 
     public static void print(Node<Integer> head) {
-        if (head == null) {
-            System.out.println("No elements");
-            return;
-        }
         while (head != null) {
             System.out.println(head.data);
             head = head.next;
