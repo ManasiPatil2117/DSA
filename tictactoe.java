@@ -16,34 +16,34 @@ public class tictactoe {
         for (int i = 0; i < 8; i++) {
             String line = null;
             switch (i) {
-                case 1:
+                case 0:
                     line = board[0] + board[1] + board[2];
                     break;
-                case 2:
+                case 1:
                     line = board[3] + board[4] + board[5];
                     break;
-                case 3:
+                case 2:
                     line = board[6] + board[7] + board[8];
                     break;
-                case 4:
+                case 3:
                     line = board[0] + board[3] + board[6];
                     break;
-                case 5:
+                case 4:
                     line = board[1] + board[4] + board[7];
                     break;
-                case 6:
+                case 5:
                     line = board[2] + board[5] + board[8];
                     break;
-                case 7:
+                case 6:
                     line = board[1] + board[4] + board[8];
                     break;
-                case 8:
+                case 7:
                     line = board[2] + board[4] + board[6];
                     break;
             }
-            if (line == "xxx") {
+            if (line.equals("xxx")) {
                 return "x";
-            } else if (line == "ooo") {
+            } else if (line.equals("ooo")) {
                 return "o";
             }
         }
@@ -56,6 +56,7 @@ public class tictactoe {
 
             }
         }
+        System.out.println();
         System.out.println(turn + "'s turn");
         return null;
     }
@@ -73,6 +74,10 @@ public class tictactoe {
         Scanner sc = new Scanner(System.in);
         while (winner == null) {
             input = sc.nextInt();
+            if(input>=9){
+                System.out.println("Please enter valid position:");
+                input = sc.nextInt();
+            }
             if (board[input - 1].equals(Integer.toString(input))) {
                 board[input - 1] = turn;
 
@@ -84,11 +89,10 @@ public class tictactoe {
                 displayBoard();
                 winner = winnerCheck();
             } else {
-                System.out.println(
-                        "Slot already taken, Enter another slot:");
+                System.out.println("Slot already taken, Enter another slot:");
             }
         }
-        if (winner.equals("draw")) {
+        if (winner.equalsIgnoreCase("draw")) {
             System.out.println("It's a Draw");
         } else {
             System.out.println("Congratulations winner is: " + winner);
