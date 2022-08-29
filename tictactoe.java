@@ -74,7 +74,7 @@ public class tictactoe {
         Scanner sc = new Scanner(System.in);
         while (winner == null) {
             input = sc.nextInt();
-            if(input>=9){
+            if(input>9){
                 System.out.println("Please enter valid position:");
                 input = sc.nextInt();
             }
