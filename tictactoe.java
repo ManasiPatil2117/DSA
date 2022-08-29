@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class tictactoe {
     static String[] board;
@@ -63,7 +62,7 @@ public class tictactoe {
 
     public static void main(String args[]) {
         String winner = null;
-        turn = "x";
+        turn = "X";
         int input;
         board = new String[9];
         System.out.println(" x wil go first:");
@@ -74,17 +73,17 @@ public class tictactoe {
         Scanner sc = new Scanner(System.in);
         while (winner == null) {
             input = sc.nextInt();
-            if(input>9){
+            if (input > 9) {
                 System.out.println("Please enter valid position:");
                 input = sc.nextInt();
             }
             if (board[input - 1].equals(Integer.toString(input))) {
                 board[input - 1] = turn;
 
-                if (turn == "x") {
-                    turn = "o";
+                if (turn == "X") {
+                    turn = "O";
                 } else {
-                    turn = "x";
+                    turn = "X";
                 }
                 displayBoard();
                 winner = winnerCheck();
