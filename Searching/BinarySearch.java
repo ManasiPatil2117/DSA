@@ -18,3 +18,4 @@ public class BinarySearch {
         System.out.println(search(a,4));
     }
 }
+s
