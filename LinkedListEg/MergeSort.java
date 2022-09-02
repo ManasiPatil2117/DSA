@@ -37,10 +37,10 @@ public class MergeSort {
     }
 
     public static Node mid(Node head) {
+        Node slow = head, fast = head;
         if (head == null)
         return head;
-        Node slow = head, fast = head;
-        while (fast.next != null && fast.next.next != null) {
+        while (fast.next != null && fast.next.next != null &&fast.next != null ) {
             slow = slow.next;
             fast = fast.next.next;
         }
