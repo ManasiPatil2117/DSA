@@ -43,16 +43,11 @@ public class MergeSorted_1 {
             }
             cur = cur.next;
         }
-        while (head1 != null) {
-            cur.next = head1;
-            head1 = head1.next;
-            cur = cur.next;
+        if(head2!=null){
+            cur.next=head2;
         }
-
-        while (head2 != null) {
-            cur.next = head2;
-            head2 = head2.next;
-            cur = cur.next;
+        if(head1!=null){
+            cur.next=head1;
         }
         return temp.next;
     }
