@@ -42,6 +42,12 @@ class BinaryTree {
             return 0;
         return sum(root.left) + sum(root.right) + root.data;
     }
+
+    static int height(Node root) {
+        if (root == null)
+            return 0;
+        return Math.max(height(root.left), height(root.right)) + 1;
+    }
 }
 
 public class BTCount_SumNodes {
@@ -52,5 +58,6 @@ public class BTCount_SumNodes {
         b.print(root);
         System.out.println("Count: " + b.count(root));
         System.out.println("Sum: " + b.sum(root));
+        System.out.println("Height: " + b.height(root));
     }
 }
