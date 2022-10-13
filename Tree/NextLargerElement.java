@@ -40,6 +40,7 @@ public class NextLargerElement {
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         int r = Integer.MAX_VALUE;
+        int te = r;
         while (!q.isEmpty()) {
             TreeNode t = q.poll();
             if (t.data > x) {
@@ -50,7 +51,11 @@ public class NextLargerElement {
             for (int i = 0; i < t.children.size(); i++)
                 q.add(t.children.get(i));
         }
-        System.out.println(r);
+        if (r != te)
+            System.out.println(r);
+        else {
+            System.out.println("Not found");
+        }
 
     }
 
