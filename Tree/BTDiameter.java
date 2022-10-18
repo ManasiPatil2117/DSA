@@ -35,7 +35,7 @@ class BinaryTree {
         return Math.max(height(root.left), height(root.right)) + 1;
     }
 
-    // Time complexity - O(N^2)
+    // Time complexity - O(N^2) ||O(N*H)
      int diameter(Node root) {
         if (root == null)
             return 0;
