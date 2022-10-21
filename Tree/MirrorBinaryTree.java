@@ -49,6 +49,25 @@ public class MirrorBinaryTree {
         return root;
     }
 
+    static void mirror2(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Queue<BinaryTreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            BinaryTreeNode n = q.poll();
+            BinaryTreeNode temp = n.left;
+            n.left = n.right;
+            n.right = temp;
+            if (n.left != null)
+                q.add(n.left);
+            if (n.right != null)
+                q.add(n.right);
+        }
+        print(root);
+    }
+
     static void print(BinaryTreeNode root) {
         if (root == null)
             return;
@@ -82,8 +101,7 @@ public class MirrorBinaryTree {
         System.out.println("Tree before Mirror: ");
         print(root);
         System.out.println("Tree After Mirror: ");
-        root = mirror(root);
-        print(root);
+        mirror2(root);
     }
 
 }
