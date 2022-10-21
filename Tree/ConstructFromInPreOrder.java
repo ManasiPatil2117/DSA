@@ -30,10 +30,10 @@ public class ConstructFromInPreOrder {
         BinaryTreeNode root = new BinaryTreeNode(rootdata);
         int leftInS = is;
         int leftInE = rootindexIn - 1;
-        int leftPreS = ps + 1;
-        int leftPreE = leftInE - leftInS + leftPreS;
         int rightInS = rootindexIn + 1;
         int rightInE = ie;
+        int leftPreS = ps + 1;
+        int leftPreE = leftInE - leftInS + leftPreS;
         int rightPreS = leftPreE + 1;
         int rightPreE = pe;
         root.left = create(in, pre, leftInS, leftInE, leftPreS, leftPreE);
