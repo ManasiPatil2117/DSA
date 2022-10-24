@@ -52,7 +52,7 @@ public class LevelWiseInput {
                 for (int i = 0; i < t.children.size(); i++) {
                     q.add(t.children.get(i));
                 }
-s            }
+            }
         }
     }
 
