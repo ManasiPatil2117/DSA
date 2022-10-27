@@ -80,8 +80,6 @@ public class CheckBST {
         int rightmin = min(root.right);
         if (root.data > rightmin || root.data <= leftMax)
             return false;
-        // if ()
-        // return false;
         return check(root.left) && check(root.right);
     }
 
