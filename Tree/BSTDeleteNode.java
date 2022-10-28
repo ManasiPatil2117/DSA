@@ -56,13 +56,9 @@ public class BSTDeleteNode {
             else if (root.right == null)
                 return root.left;
             else {
-
                 int t = max(root.left);
                 root.data = t;
-                // System.out.println(root.data);
                 root.left = delete(root.left, t);
-                // return root;
-
             }
         } else if (root.data > data) {
             root.left = delete(root.left, data);
