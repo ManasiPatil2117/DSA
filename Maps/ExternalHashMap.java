@@ -16,11 +16,11 @@ class Map<K, V> {
     int size = 0;
     int bucketCapacity;
 
-    Map(K key, V value) {
+    Map() {
         bucketArray = new ArrayList<>();
         for (int i = 0; i < 20; i++)
             bucketArray.add(null);
-        bucketCapacity = 20;
+        bucketCapacity = 10;
     }
 
     int getBucketIndex(K key) {
@@ -43,6 +43,23 @@ class Map<K, V> {
         newEle.next = head;
         bucketArray.set(bucketIndex, newEle);
         size++;
+        double loadFactor = (1.0 * size) / bucketCapacity;
+        if (loadFactor > 0.7) {
+            reHash();
+        }
+    }
+
+    void reHash() {
+        ArrayList<Node<K, V>> temp = bucketArray;
+        bucketCapacity *= 2;
+        bucketArray = new ArrayList<Node<K, V>>();
+        for (int i = 0; i < bucketCapacity; i++) {
+            bucketArray.add(null);
+        }
+        for (int i = 0; i < size; i++) {
+            int h = getBucketIndex(temp.get(i).key);
+            bucketArray.set(h, temp.get(i));
+        }
     }
 
     V getValue(K key) {
@@ -64,6 +81,7 @@ class Map<K, V> {
             if (head.key.equals(key)) {
                 if (prev == null) {
                     bucketArray.set(bucketIndex, head.next);
+                    size--;
                 } else {
                     prev.next = head.next;
                 }
@@ -77,21 +95,22 @@ class Map<K, V> {
 public class ExternalHashMap {
 
     public static void main(String[] args) {
-        Map<Integer, Integer> map = new Map<>(null, null);
-        map.insert(1, 10);
-        map.insert(2, 20);
-        map.insert(3, 30);
-        map.insert(4, 40);
+        Map<Integer, Integer> map = new Map<>();
+
+        for (int i = 0; i < 15; i++)
+            map.insert(i, i + 1);
+
         System.out.println("Before Deleting");
-        System.out.println(map.getValue(1));
-        System.out.println(map.getValue(2));
-        System.out.println(map.getValue(3));
-        System.out.println(map.getValue(4));
+        for (int i = 0; i < 15; i++)
+            System.out.println(map.getValue(i));
+        System.out.println("Map size: " + map.size);
+
         map.remove(2);
+        map.remove(10);
+
         System.out.println("\nAfter Deleting");
-        System.out.println(map.getValue(1));
-        System.out.println(map.getValue(2));
-        System.out.println(map.getValue(3));
-        System.out.println(map.getValue(4));
+        for (int i = 0; i < 15; i++)
+            System.out.println(map.getValue(i));
+        System.out.println("Map size: " + map.size);
     }
 }
