@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 
 public class UniqueChar {
     public static void main(String[] args) {
@@ -13,5 +13,8 @@ public class UniqueChar {
         }
         System.out.println(map.keySet());
 
+        Set<Character> set1 = new HashSet<>();
+        char[] c = s.toCharArray();
+        set1.addAll(Arrays.asList());
     }
 }
